@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 140">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#0b2343"/><stop offset="1" stop-color="#2b78d0"/></linearGradient></defs>
+  <g transform="translate(8 10)">
+    <text x="0" y="72" font-family="Arial,Helvetica,sans-serif" font-size="86" font-weight="800" letter-spacing="-8" fill="url(#g)">HD</text>
+    <path d="M4 88 C75 58 145 60 210 88" fill="none" stroke="#2b78d0" stroke-width="8" stroke-linecap="round"/>
+    <text x="226" y="62" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="800" letter-spacing="8" fill="#0b2343">TRADING</text>
+    <text x="229" y="102" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" letter-spacing="10" fill="#5b6770">LLC</text>
+  </g>
+</svg>
