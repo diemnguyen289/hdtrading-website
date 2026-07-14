@@ -1,27 +1,17 @@
-# HD Trading LLC Website — V4 Final
+# HD Trading LLC Website V5
 
-Static B2B company website for Cloudflare Pages.
+Includes:
+- Expanded company website
+- FAQ
+- Supplier application that prepares an email
+- Privacy notice and terms
+- Open Graph metadata
+- robots.txt
+- sitemap.xml
+- 404 page
+- Favicon and social sharing image
 
-## Files
-- `index.html`
-- `styles.css`
-- `script.js`
-- `logo.svg`
-- `logo-white.svg`
-- `favicon.svg`
+Upload every file in this folder to the root of the GitHub repository, then commit:
+`Upgrade website to V5`
 
-All asset references are in the repository root to prevent path problems.
-
-## Upload to GitHub
-1. Open the `hdtrading-website` repository.
-2. Choose **Add file → Upload files**.
-3. Upload all six files from this folder.
-4. Commit with: `Replace website with V4 Final`.
-5. Cloudflare Pages will redeploy automatically.
-
-## Verify
-After Cloudflare shows **Success**, open:
-- https://hdtradingllc.net
-- https://hdtradingllc.net/logo.svg
-
-Use `Ctrl + F5` if the old version is cached.
+Cloudflare Pages will deploy automatically.
