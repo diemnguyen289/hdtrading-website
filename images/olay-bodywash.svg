@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+<rect width="900" height="900" fill="#f4f5f1"/>
+
+        <rect x="170" y="90" width="560" height="720" rx="18" fill="white" stroke="#d9ddd9" stroke-width="7"/>
+        <rect x="170" y="90" width="560" height="115" rx="18" fill="#cfb489"/>
+        
+<text x="450" y="300" text-anchor="middle" font-family="Arial,sans-serif" font-size="42" font-weight="800" fill="#202a23">OLAY</text>
+<text x="450" y="405" text-anchor="middle" font-family="Arial,sans-serif" font-size="56" font-weight="800" fill="#cfb489">BODY WASH</text>
+<text x="450" y="470" text-anchor="middle" font-family="Arial,sans-serif" font-size="40" font-weight="700" fill="#323a34">3-PACK</text>
+<line x1="325" y1="515" x2="575" y2="515" stroke="#d0d4d0" stroke-width="5"/>
+<text x="450" y="575" text-anchor="middle" font-family="Arial,sans-serif" font-size="25" fill="#667069">Essential Botanical</text>
+<text x="450" y="735" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#9aa09c">PRODUCT REFERENCE</text>
+</svg>
