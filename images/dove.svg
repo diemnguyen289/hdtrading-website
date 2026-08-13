@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+<rect width="900" height="900" fill="#f4f7fb"/>
+<rect x="270" y="105" width="360" height="690" rx="60" fill="white" stroke="#d9ddd9" stroke-width="8"/>
+<rect x="330" y="70" width="240" height="95" rx="24" fill="#315a9a"/>
+<text x="450" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="700" fill="#253029">DOVE</text>
+<text x="450" y="420" text-anchor="middle" font-family="Arial,sans-serif" font-size="58" font-weight="800" fill="#315a9a">BODY CARE</text>
+<line x1="335" y1="470" x2="565" y2="470" stroke="#d3d8d4" stroke-width="5"/>
+<text x="450" y="535" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" fill="#6a736c">Personal Care</text>
+<text x="450" y="705" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#9aa09c">PRODUCT CATEGORY IMAGE</text>
+</svg>
