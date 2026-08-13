@@ -1,242 +1,343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HD Trading LLC - U.S. B2B wholesale distribution for health, nutrition, beauty, personal care, sports nutrition, and OTC products." />
   <title>HD Trading LLC | B2B Wholesale Distribution</title>
-  <meta name="description" content="HD Trading LLC is a U.S.-based B2B wholesale distribution company serving health, nutrition, beauty, personal care, sports nutrition, and OTC categories.">
-  <link rel="canonical" href="https://hdtradingllc.net/">
-  <meta property="og:title" content="HD Trading LLC | B2B Wholesale Distribution">
-  <meta property="og:description" content="Connecting Brands. Delivering Value.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hdtradingllc.net/">
-  <meta property="og:image" content="https://hdtradingllc.net/og-image.svg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0b2e59">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --card: #ffffff;
+      --ink: #17211b;
+      --muted: #6b726d;
+      --line: #dedfd9;
+      --accent: #243b2d;
+      --accent2: #b99054;
+      --soft: #eef1ec;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(247,245,239,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:74px; gap:20px; }
+    .brand { font-weight:800; letter-spacing:.08em; }
+    .navlinks { display:flex; gap:22px; font-size:14px; color:#3c453f; flex-wrap:wrap; justify-content:flex-end; }
+    .navlinks a:hover { color: var(--accent2); }
+    .hero {
+      min-height: 66vh;
+      display:grid; align-items:center;
+      background:
+        linear-gradient(90deg, rgba(15,28,20,.92), rgba(15,28,20,.62)),
+        radial-gradient(circle at 80% 20%, rgba(185,144,84,.28), transparent 30%),
+        #18271e;
+      color:white;
+    }
+    .hero-inner { padding:90px 0; max-width:820px; }
+    .eyebrow {
+      text-transform:uppercase; letter-spacing:.18em; font-size:12px; font-weight:700;
+      color:#d7c39f; margin-bottom:18px;
+    }
+    h1 { font-size:clamp(42px, 7vw, 78px); line-height:.98; margin:0 0 24px; letter-spacing:-.04em; }
+    h2 { font-size:clamp(30px, 4vw, 48px); line-height:1.06; letter-spacing:-.03em; margin:0 0 16px; }
+    h3 { margin:0; }
+    .hero p { max-width:720px; font-size:18px; color:#e4e8e4; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:13px 18px; border-radius:8px; border:1px solid transparent;
+      font-weight:700; font-size:14px; cursor:pointer;
+    }
+    .btn-primary { background:white; color:#17211b; }
+    .btn-secondary { border-color:rgba(255,255,255,.42); color:white; }
+    .btn-dark { background:var(--accent); color:white; }
+    .btn-outline { border-color:#a9aea9; color:var(--ink); background:transparent; }
+    section { padding:84px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:28px; margin-bottom:34px; }
+    .section-head p { max-width:620px; color:var(--muted); margin:0; }
+    .intro-grid, .feature-grid, .category-grid, .product-grid { display:grid; gap:18px; }
+    .intro-grid { grid-template-columns:repeat(4,1fr); }
+    .feature-grid { grid-template-columns:repeat(4,1fr); }
+    .category-grid { grid-template-columns:repeat(3,1fr); }
+    .product-grid { grid-template-columns:repeat(3,1fr); }
+    .card {
+      background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px;
+    }
+    .stat { font-size:12px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); }
+    .stat strong { display:block; font-size:20px; color:var(--ink); letter-spacing:0; margin-top:7px; }
+    .category-card { min-height:210px; display:flex; flex-direction:column; justify-content:space-between; }
+    .category-icon, .product-image {
+      display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(135deg,#eef0ea,#e3e7df);
+      color:#758078; font-weight:800;
+    }
+    .category-icon { width:48px; height:48px; border-radius:50%; }
+    .product-image { height:220px; border-radius:10px; font-size:54px; letter-spacing:-.08em; }
+    .product-card { display:flex; flex-direction:column; gap:16px; }
+    .product-meta { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .pill { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; background:var(--soft); padding:6px 9px; border-radius:999px; color:#58615a; }
+    .product-card h3 { font-size:21px; }
+    .product-card p { margin:0; color:var(--muted); font-size:14px; }
+    .product-card .btn { margin-top:auto; align-self:flex-start; }
+    .notice {
+      margin-top:26px; padding:18px 20px; border-radius:10px;
+      background:#f0ede4; border:1px solid #ded4c2; color:#655c50; font-size:13px;
+    }
+    .band { background:var(--accent); color:white; }
+    .band p { color:#dce4df; max-width:720px; }
+    .process { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:30px; }
+    .step { border-top:1px solid rgba(255,255,255,.32); padding-top:18px; }
+    .step span { color:#d7c39f; font-weight:800; font-size:12px; }
+    .contact {
+      display:grid; grid-template-columns:1.2fr .8fr; gap:30px;
+      background:white; border:1px solid var(--line); border-radius:18px; padding:34px;
+    }
+    footer { padding:34px 0; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+    .filter {
+      border:1px solid var(--line); background:white; color:var(--ink);
+      padding:9px 12px; border-radius:999px; cursor:pointer; font-weight:700; font-size:12px;
+    }
+    .filter.active { background:var(--accent); color:white; border-color:var(--accent); }
+    @media (max-width: 900px) {
+      .intro-grid,.feature-grid,.process { grid-template-columns:repeat(2,1fr); }
+      .category-grid,.product-grid { grid-template-columns:repeat(2,1fr); }
+      .contact { grid-template-columns:1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav { align-items:flex-start; padding:16px 0; }
+      .navlinks { gap:12px; font-size:12px; }
+      .hero-inner { padding:70px 0; }
+      section { padding:62px 0; }
+      .section-head { display:block; }
+      .section-head p { margin-top:10px; }
+      .intro-grid,.feature-grid,.category-grid,.product-grid,.process { grid-template-columns:1fr; }
+      .product-image { height:190px; }
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#top">HD TRADING LLC</a>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#categories">Industries</a>
+      <a href="#products">Products</a>
+      <a href="#supplier">Supplier Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="HD Trading LLC home">
-        <img src="logo.svg" alt="HD Trading LLC">
-      </a>
-      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="site-nav">
-        <a href="#about">About</a>
-        <a href="#industries">Industries</a>
-        <a href="#process">Supplier Process</a>
-        <a href="#faq">FAQ</a>
-        <a href="#application">Supplier Application</a>
-        <a class="nav-cta" href="#contact">Contact</a>
-      </nav>
+<main id="top">
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="eyebrow">U.S. B2B Wholesale Distribution</div>
+      <h1>Connecting Brands.<br/>Delivering Value.</h1>
+      <p>HD Trading LLC develops long-term wholesale relationships with manufacturers, authorized distributors, brand owners, wholesalers, and qualified business buyers across the United States.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#products">View Wholesale Products</a>
+        <a class="btn btn-secondary" href="mailto:purchasing@hdtradingllc.net?subject=Wholesale%20Buyer%20Inquiry">Request a Quote</a>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-art" aria-hidden="true">
-        <div class="cube c1"></div><div class="cube c2"></div><div class="cube c3"></div>
-      </div>
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">U.S. B2B WHOLESALE DISTRIBUTION</p>
-          <h1>Connecting Brands.<br><span>Delivering Value.</span></h1>
-          <p class="hero-text">HD Trading LLC develops long-term wholesale relationships with manufacturers, authorized distributors, brand owners, wholesalers, and qualified business buyers across the United States.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#application">Become a Supplier</a>
-            <a class="btn btn-secondary" href="mailto:purchasing@hdtradingllc.net?subject=Purchasing%20Inquiry">Contact Purchasing</a>
-          </div>
-        </div>
-        <aside class="hero-card reveal">
-          <p class="micro">CORE CATEGORIES</p>
-          <ul>
-            <li><span>01</span>Vitamins & supplements</li>
-            <li><span>02</span>Sports nutrition & protein</li>
-            <li><span>03</span>Beauty & personal care</li>
-            <li><span>04</span>OTC health products</li>
-          </ul>
-          <p class="hero-card-note">B2B only · Nationwide focus</p>
-        </aside>
-      </div>
-      <div class="container trust-strip reveal">
-        <article><strong>Professional Purchasing</strong><span>Clear documentation and responsive communication</span></article>
-        <article><strong>Reliable Sourcing</strong><span>Focused on trusted products and long-term supply</span></article>
-        <article><strong>Business Ready</strong><span>W-9 and resale documentation available upon request</span></article>
-        <article><strong>Nationwide Focus</strong><span>Serving qualified business customers across the U.S.</span></article>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container split">
-        <div class="section-heading reveal">
-          <p class="eyebrow">ABOUT HD TRADING LLC</p>
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="color:#8a6b3f">About HD Trading LLC</div>
           <h2>A wholesale partner built for dependable business relationships.</h2>
         </div>
-        <div class="section-copy reveal">
-          <p>HD Trading LLC is a U.S.-based B2B wholesale distribution company focused on health, wellness, nutrition, beauty, personal care, sports nutrition, and OTC products.</p>
-          <p>We work with manufacturers, authorized distributors, brand owners, wholesalers, and qualified business buyers. Our approach emphasizes clear communication, professional documentation, and reliable follow-through.</p>
-          <div class="value-grid">
-            <div><strong>Mission</strong><span>Build practical, long-term wholesale relationships.</span></div>
-            <div><strong>Approach</strong><span>Transparent, organized, and responsive purchasing.</span></div>
-            <div><strong>Market</strong><span>Qualified business customers across the United States.</span></div>
+        <p>We focus on health, wellness, nutrition, beauty, personal care, sports nutrition, and OTC products for qualified B2B customers.</p>
+      </div>
+      <div class="intro-grid">
+        <div class="card stat">Business Model<strong>B2B Wholesale</strong></div>
+        <div class="card stat">Market<strong>United States</strong></div>
+        <div class="card stat">Purchasing<strong>Professional & Responsive</strong></div>
+        <div class="card stat">Documentation<strong>Available on Request</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories" style="background:#eeeee8">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="color:#8a6b3f">Industries We Serve</div>
+          <h2>Focused categories. Flexible partnerships.</h2>
+        </div>
+        <p>Our sourcing priorities center on established health, wellness, nutrition, and personal care categories.</p>
+      </div>
+      <div class="category-grid">
+        <div class="card category-card"><div class="category-icon">V</div><div><h3>Vitamins & Supplements</h3><p>Daily wellness, specialty supplements, gummies, minerals, and related products.</p></div></div>
+        <div class="card category-card"><div class="category-icon">P</div><div><h3>Sports Nutrition</h3><p>Protein, performance, recovery, and active lifestyle products.</p></div></div>
+        <div class="card category-card"><div class="category-icon">B</div><div><h3>Beauty & Personal Care</h3><p>Skincare, body care, haircare, hygiene, and grooming products.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="color:#8a6b3f">Wholesale Product Catalog</div>
+          <h2>Products for qualified business buyers.</h2>
+        </div>
+        <p>Representative products and brands we actively source or evaluate for wholesale opportunities. Contact us for current availability, case packs, MOQ, and pricing.</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">All Products</button>
+        <button class="filter" data-filter="sports">Sports Nutrition</button>
+        <button class="filter" data-filter="vitamins">Vitamins & Supplements</button>
+        <button class="filter" data-filter="personal">Beauty & Personal Care</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <article class="card product-card" data-category="sports">
+          <div class="product-image">ON</div>
+          <div class="product-meta"><span class="pill">Sports Nutrition</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>Optimum Nutrition Gold Standard Whey</h3><p>Protein powder. Multiple sizes and flavors may be available depending on current sourcing.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20Optimum%20Nutrition%20Gold%20Standard%20Whey&body=Hello%20HD%20Trading%2C%0A%0APlease%20send%20current%20wholesale%20availability%2C%20case%20pack%2C%20MOQ%2C%20and%20pricing%20for%20Optimum%20Nutrition%20Gold%20Standard%20Whey.%0A">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="sports">
+          <div class="product-image">DY</div>
+          <div class="product-meta"><span class="pill">Sports Nutrition</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>Dymatize ISO100</h3><p>Hydrolyzed whey protein isolate. Contact purchasing for available formats, flavors, and terms.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20Dymatize%20ISO100&body=Hello%20HD%20Trading%2C%0A%0APlease%20send%20current%20wholesale%20availability%2C%20case%20pack%2C%20MOQ%2C%20and%20pricing%20for%20Dymatize%20ISO100.%0A">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="sports">
+          <div class="product-image">BSN</div>
+          <div class="product-meta"><span class="pill">Sports Nutrition</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>BSN SYNTHA-6</h3><p>Protein powder for sports nutrition buyers. Availability and commercial terms are confirmed per inquiry.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20BSN%20SYNTHA-6">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="sports">
+          <div class="product-image">ORG</div>
+          <div class="product-meta"><span class="pill">Nutrition</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>Orgain Protein Products</h3><p>Selected protein and nutrition products. Contact us for current sourcing options.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20Orgain%20Products">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="vitamins">
+          <div class="product-image">YT</div>
+          <div class="product-meta"><span class="pill">Supplements</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>Youtheory Supplements</h3><p>Selected wellness and supplement products. Current availability is subject to supplier confirmation.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20Youtheory%20Supplements">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="vitamins">
+          <div class="product-image">LC</div>
+          <div class="product-meta"><span class="pill">Vitamins</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>L'il Critters Gummy Vitamins</h3><p>Children's gummy vitamin products. Contact us for current case pack, MOQ, and wholesale availability.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20Lil%20Critters%20Gummy%20Vitamins">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="personal">
+          <div class="product-image">OL</div>
+          <div class="product-meta"><span class="pill">Personal Care</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>Olay Body Care</h3><p>Selected body wash and personal care items for qualified wholesale buyers.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20Olay%20Body%20Care">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="personal">
+          <div class="product-image">DV</div>
+          <div class="product-meta"><span class="pill">Personal Care</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>Dove Body Care</h3><p>Selected body scrub and related personal care products. Contact us for current sourcing.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20Dove%20Body%20Care">Request Quote</a>
+        </article>
+
+        <article class="card product-card" data-category="personal">
+          <div class="product-image">OGX</div>
+          <div class="product-meta"><span class="pill">Beauty & Care</span><span class="pill">Wholesale Inquiry</span></div>
+          <div><h3>OGX Body Care</h3><p>Selected scrub, haircare, and personal care products for B2B wholesale inquiries.</p></div>
+          <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Quote%20Request%20-%20OGX%20Products">Request Quote</a>
+        </article>
+      </div>
+
+      <div class="notice">
+        Product names and trademarks are the property of their respective owners. Product listing does not imply brand ownership or authorized-distributor status. Availability, pricing, MOQ, case pack, marketplace restrictions, and commercial terms are subject to written confirmation.
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="supplier">
+    <div class="container">
+      <div class="eyebrow">Supplier Process</div>
+      <h2>A straightforward onboarding process.</h2>
+      <p>We welcome manufacturers, brand owners, authorized distributors, and established wholesalers interested in long-term B2B relationships.</p>
+      <div class="process">
+        <div class="step"><span>01</span><h3>Introduction</h3><p>Share your company, catalog, brands, and wholesale terms.</p></div>
+        <div class="step"><span>02</span><h3>Review</h3><p>We evaluate fit, pricing, MOQ, documentation, and account requirements.</p></div>
+        <div class="step"><span>03</span><h3>Account Setup</h3><p>Qualified opportunities move into formal wholesale onboarding.</p></div>
+        <div class="step"><span>04</span><h3>Partnership</h3><p>We begin purchasing and develop the relationship based on performance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact">
+        <div>
+          <div class="eyebrow" style="color:#8a6b3f">Purchasing & Wholesale Sales</div>
+          <h2>Let’s discuss a wholesale opportunity.</h2>
+          <p style="color:var(--muted)">For buyer quote requests, supplier introductions, catalogs, pricing, or wholesale account opportunities, contact HD Trading LLC.</p>
+          <div class="actions">
+            <a class="btn btn-dark" href="mailto:purchasing@hdtradingllc.net?subject=Wholesale%20Inquiry">Email HD Trading</a>
+            <a class="btn btn-outline" href="#products">Browse Products</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="industries">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">INDUSTRIES WE SERVE</p>
-          <h2>Focused categories. Flexible partnerships.</h2>
-          <p>Our sourcing priorities center on established health, wellness, nutrition, and personal care categories.</p>
-        </div>
-        <div class="card-grid">
-          <article class="industry-card reveal"><div class="icon">V</div><h3>Vitamins</h3><p>Essential vitamins, minerals, and everyday wellness products.</p></article>
-          <article class="industry-card reveal"><div class="icon">S</div><h3>Supplements</h3><p>Dietary and specialty supplements for qualified business buyers.</p></article>
-          <article class="industry-card reveal"><div class="icon">P</div><h3>Sports Nutrition</h3><p>Protein, performance, recovery, and active lifestyle products.</p></article>
-          <article class="industry-card reveal"><div class="icon">B</div><h3>Beauty</h3><p>Skincare, cosmetics, haircare, and related beauty products.</p></article>
-          <article class="industry-card reveal"><div class="icon">C</div><h3>Personal Care</h3><p>Daily hygiene, grooming, and household personal care essentials.</p></article>
-          <article class="industry-card reveal"><div class="icon">O</div><h3>OTC Healthcare</h3><p>Non-prescription health and wellness products for B2B distribution.</p></article>
+        <div class="card">
+          <div class="stat">Business Name<strong>HD Trading LLC</strong></div><br/>
+          <div class="stat">Business Type<strong>B2B Wholesale Distribution</strong></div><br/>
+          <div class="stat">Markets Served<strong>United States</strong></div><br/>
+          <div class="stat">Email<strong>purchasing@hdtradingllc.net</strong></div>
         </div>
       </div>
-    </section>
-
-    <section class="section dark-section" id="why-us">
-      <div class="container">
-        <div class="section-heading light reveal">
-          <p class="eyebrow">WHY HD TRADING</p>
-          <h2>Professional, responsive, and partnership-focused.</h2>
-        </div>
-        <div class="feature-grid">
-          <article class="feature reveal"><span>01</span><h3>Clear Communication</h3><p>Prompt responses and organized purchasing conversations.</p></article>
-          <article class="feature reveal"><span>02</span><h3>Documentation Ready</h3><p>Relevant business documents are available to qualified partners.</p></article>
-          <article class="feature reveal"><span>03</span><h3>B2B Wholesale Focus</h3><p>Our model is designed for sourcing, resale, and distribution relationships.</p></article>
-          <article class="feature reveal"><span>04</span><h3>Long-Term Perspective</h3><p>We value dependable supply, transparent terms, and sustainable growth.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">SUPPLIER PROCESS</p>
-          <h2>A straightforward onboarding process.</h2>
-        </div>
-        <div class="process-grid">
-          <article class="process-step reveal"><div class="step-number">1</div><h3>Introduction</h3><p>Share your company, catalog, brands, and wholesale terms.</p></article>
-          <article class="process-step reveal"><div class="step-number">2</div><h3>Review</h3><p>We review fit, pricing, documentation, MOQ, and account requirements.</p></article>
-          <article class="process-step reveal"><div class="step-number">3</div><h3>Account Setup</h3><p>Qualified opportunities move into formal wholesale onboarding.</p></article>
-          <article class="process-step reveal"><div class="step-number">4</div><h3>Partnership</h3><p>We begin purchasing and develop the relationship based on performance and fit.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="faq">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
-          <h2>Business information for prospective partners.</h2>
-        </div>
-        <div class="faq-list">
-          <details class="reveal"><summary>Do you sell directly to consumers?</summary><p>No. HD Trading LLC is focused on B2B wholesale relationships.</p></details>
-          <details class="reveal"><summary>Which product categories do you purchase?</summary><p>Our primary focus includes vitamins, supplements, sports nutrition, protein, beauty, personal care, and OTC healthcare.</p></details>
-          <details class="reveal"><summary>Do you have resale documentation?</summary><p>Yes. Appropriate resale and business documentation is available to qualified suppliers upon request.</p></details>
-          <details class="reveal"><summary>What information should suppliers provide?</summary><p>Please provide your company website, catalog, brand list, wholesale price list, MOQ, payment terms, marketplace restrictions, and account requirements.</p></details>
-          <details class="reveal"><summary>How quickly do you respond?</summary><p>We generally respond to qualified purchasing inquiries within one to two business days.</p></details>
-          <details class="reveal"><summary>Do you require a specific MOQ?</summary><p>MOQ is evaluated by supplier, product category, pricing, and commercial fit.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="application">
-      <div class="container application-grid">
-        <div class="section-heading reveal">
-          <p class="eyebrow">SUPPLIER APPLICATION</p>
-          <h2>Introduce your company and product line.</h2>
-          <p>This form opens a prepared email to our purchasing department. Attach your catalog or price list before sending.</p>
-        </div>
-        <form class="supplier-form reveal" id="supplier-form">
-          <label>Company Name<input name="company" required></label>
-          <label>Contact Name<input name="contact" required></label>
-          <label>Email<input type="email" name="email" required></label>
-          <label>Phone<input name="phone"></label>
-          <label>Website<input type="url" name="website" placeholder="https://"></label>
-          <label>Product Categories<input name="categories" placeholder="Vitamins, beauty, protein..."></label>
-          <label class="full">Message<textarea name="message" rows="5" placeholder="Tell us about your brands, MOQ, wholesale terms, and account requirements."></textarea></label>
-          <button class="btn btn-primary full" type="submit">Prepare Supplier Email</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="business-info">
-      <div class="container info-layout">
-        <div class="section-heading reveal">
-          <p class="eyebrow">BUSINESS INFORMATION</p>
-          <h2>Documentation available for qualified partners.</h2>
-          <p>For privacy and security, identification numbers are not published online.</p>
-        </div>
-        <dl class="info-list reveal">
-          <div><dt>Business Name</dt><dd>HD Trading LLC</dd></div>
-          <div><dt>Business Type</dt><dd>B2B Wholesale Distribution</dd></div>
-          <div><dt>Markets Served</dt><dd>United States</dd></div>
-          <div><dt>California Seller's Permit</dt><dd>Available upon request</dd></div>
-          <div><dt>W-9</dt><dd>Available upon request</dd></div>
-          <div><dt>Resale Documentation</dt><dd>Available to qualified suppliers</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="container contact-card reveal">
-        <div>
-          <p class="eyebrow">PURCHASING DEPARTMENT</p>
-          <h2>Let’s discuss a wholesale opportunity.</h2>
-          <p>For supplier introductions, catalogs, pricing, and wholesale account applications, contact our purchasing department.</p>
-        </div>
-        <div class="contact-details">
-          <a href="mailto:purchasing@hdtradingllc.net">purchasing@hdtradingllc.net</a>
-          <a href="https://hdtradingllc.net">hdtradingllc.net</a>
-          <span>Monday–Friday · 9:00 AM–5:00 PM</span>
-          <span>Typical response: 1–2 business days</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="legal section" id="privacy">
-      <div class="container legal-grid">
-        <article>
-          <h2>Privacy Notice</h2>
-          <p>Information submitted to HD Trading LLC is used only to evaluate and respond to legitimate business inquiries. We do not sell submitted contact information.</p>
-        </article>
-        <article id="terms">
-          <h2>Terms of Use</h2>
-          <p>Website content is provided for general business information. Product availability, pricing, account approval, and commercial terms are subject to written confirmation.</p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <img class="footer-logo" src="logo-white.svg" alt="HD Trading LLC">
-        <p>Connecting Brands. Delivering Value.</p>
-        <p class="footer-small">B2B wholesale distribution serving qualified business customers across the United States.</p>
-      </div>
-      <div><h3>Company</h3><a href="#about">About</a><a href="#industries">Industries</a><a href="#business-info">Business Information</a></div>
-      <div><h3>Partnerships</h3><a href="#process">Supplier Process</a><a href="#application">Supplier Application</a><a href="mailto:purchasing@hdtradingllc.net">Contact Purchasing</a></div>
-      <div><h3>Legal</h3><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="mailto:purchasing@hdtradingllc.net">purchasing@hdtradingllc.net</a></div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> HD Trading LLC. All rights reserved.</span><span>B2B Wholesale Distribution</span></div>
-  </footer>
+  </section>
+</main>
 
-  <script src="script.js?v=5"></script>
+<footer>
+  <div class="container">
+    © <span id="year"></span> HD Trading LLC. All rights reserved. · B2B Wholesale Distribution
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const filters = document.querySelectorAll(".filter");
+  const products = document.querySelectorAll(".product-card");
+
+  filters.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filters.forEach(x => x.classList.remove("active"));
+      btn.classList.add("active");
+      const selected = btn.dataset.filter;
+      products.forEach(card => {
+        card.style.display = selected === "all" || card.dataset.category === selected ? "flex" : "none";
+      });
+    });
+  });
+</script>
 </body>
 </html>
